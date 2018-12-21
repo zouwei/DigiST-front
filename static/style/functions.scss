@@ -1,4 +1,0 @@
-@charset "UTF-8";
-@function getRem($val) {
-    @return ($val / 75) * 1rem;
-}
