@@ -31,7 +31,8 @@ export default {
 }
 .example-text {
 	// 设置文字大小直接用px，不要按照上面的方法写
-	font-size: 16px;
+  // font-size: 16px;
+  @include font-size(32);
 }
 .example-box {
 	// 设置尺寸的地方，比如设计稿上的宽度为75px，直接这么写就可以了

@@ -8,6 +8,7 @@
   <script>
     var clientWidth = document.documentElement.clientWidth;
     document.documentElement.style.fontSize = clientWidth / 10 + 'px';
+    document.documentElement.setAttribute('ratio', window.devicePixelRatio);
   </script>
   <style>
     html,
