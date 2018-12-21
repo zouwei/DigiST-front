@@ -1,113 +1,44 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-  </div>
+	<div>
+		<span class="example-text">文字直接设px</span>
+		<div class="example-box"></div>
+		<!-- 图片的链接直接写绝对路径 -->
+		<img
+		 class="example-img"
+		 src="/static/imgs/example.jpg"
+		 alt="example"
+		>
+	</div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
-}
+	name: "HelloWorld",
+	data() {
+		return {
+			msg: "Welcome to Your Vue.js App"
+		};
+	}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style scoped lang="scss">
+// 每一个页面样式都要先引一下这个
+@import "~style";
+
+.example-img {
+	width: getRem(175);
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.example-text {
+	// 设置文字大小直接用px，不要按照上面的方法写
+	font-size: 16px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.example-box {
+	// 设置尺寸的地方，比如设计稿上的宽度为75px，直接这么写就可以了
+	width: getRem(75);
+	height: getRem(75);
+	// 对于1px边框的样式，要这么写
+	// 可以传两个参数，第一个是边框颜色，第二个是border-radius的值
+	@include m-r1b(#000);
 }
 </style>

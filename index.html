@@ -5,11 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>digist_front</title>
+  <script>
+    var clientWidth = document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = clientWidth / 10 + 'px';
+  </script>
   <style>
     html,
     body {
       width: 100%;
       height: 100%;
+    }
+
+    body {
+      font-size: 16px;
     }
   </style>
 </head>
