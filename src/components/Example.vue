@@ -8,12 +8,13 @@
 		 src="/static/imgs/example.jpg"
 		 alt="example"
 		>
+		<p>首页与投资路由已建好，子路由自己添加就可以了</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: "Example"
+	name: 'Example'
 };
 </script>
 

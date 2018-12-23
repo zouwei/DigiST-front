@@ -1,0 +1,94 @@
+<template>
+	<div class="full">
+		<div class="header">
+			<p class="title">募资</p>
+			<div class="tabs">
+				<div
+				 v-for="tab of tabs"
+				 :key="tab.active"
+				 class="tab"
+				 :class="{
+					 active: $route.name === tab.active
+				 }"
+				>
+					<router-link
+					 :to="tab.path"
+					 active-class="active"
+					 tag="p"
+					 class="tab-name"
+					>已完成</router-link>
+				</div>
+			</div>
+		</div>
+		<router-view />
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'Fundraising',
+
+	data() {
+		return {
+			tabs: [
+				{
+					title: '已完成',
+					active: 'FundraisingComplete',
+					path: '/fundraising'
+				},
+				{
+					title: '已发布',
+					active: 'FundraisingPublish',
+					path: '/fundraising/publish'
+				},
+				{
+					title: '已过期',
+					active: 'FundraisingMaturity',
+					path: '/fundraising/maturity'
+				}
+			]
+		}
+	}
+}
+</script>
+
+<style lang="scss" scope>
+@import "~style";
+.header {
+	padding-top: rem(58);
+	background-image: linear-gradient(-22deg, #222cc3 0%, #2b7cd6 100%);
+}
+.title {
+	margin-bottom: rem(42);
+	text-align: center;
+	@include font-size(36);
+	color: #fff;
+}
+.tabs {
+	display: flex;
+}
+.tab {
+	position: relative;
+	flex: 1;
+	padding-bottom: rem(24);
+	opacity: 0.5;
+	&.active {
+		opacity: 1;
+		&:after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate3d(-50%, 0, 0);
+			width: rem(50);
+			height: rem(6);
+			background-color: #fff;
+		}
+	}
+}
+.tab-name {
+	text-align: center;
+	color: #fff;
+	@include font-size(30);
+}
+</style>
