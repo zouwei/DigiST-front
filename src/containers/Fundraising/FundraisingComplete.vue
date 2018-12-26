@@ -1,5 +1,5 @@
 <template>
-    <h1>已完成</h1>
+    <van-button type="primary">主要按钮</van-button>
 </template>
 
 <script>
