@@ -54,8 +54,10 @@ export default {
 .fundraising-container {
 	display: flex;
 	flex-direction: column;
+	background-color: #f4f4f4;
 }
 .router-container {
+	position: relative;
 	flex-grow: 1;
 }
 .header {

@@ -10,7 +10,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "lib-flexible": "^0.3.2",
     "vant": "^1.5.0-beta2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
