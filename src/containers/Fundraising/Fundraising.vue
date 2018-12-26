@@ -1,8 +1,8 @@
 <template>
-	<div class="full">
+	<div class="full flex fundraising-container">
 		<div class="header">
 			<p class="title">募资</p>
-			<div class="tabs">
+			<div class="flex">
 				<div
 				 v-for="tab of tabs"
 				 :key="tab.active"
@@ -20,40 +20,49 @@
 				</div>
 			</div>
 		</div>
-		<router-view />
+		<div class="router-container">
+			<router-view />
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'Fundraising',
+	name: "Fundraising",
 
 	data() {
 		return {
 			tabs: [
 				{
-					title: '已完成',
-					active: 'FundraisingComplete',
-					path: '/fundraising'
+					title: "已完成",
+					active: "FundraisingComplete",
+					path: "/fundraising"
 				},
 				{
-					title: '已发布',
-					active: 'FundraisingPublish',
-					path: '/fundraising/publish'
+					title: "已发布",
+					active: "FundraisingPublish",
+					path: "/fundraising/publish"
 				},
 				{
-					title: '已过期',
-					active: 'FundraisingMaturity',
-					path: '/fundraising/maturity'
+					title: "已过期",
+					active: "FundraisingMaturity",
+					path: "/fundraising/maturity"
 				}
 			]
-		}
+		};
 	}
-}
+};
 </script>
 
 <style lang="scss" scope>
 @import "~style";
+
+.fundraising-container {
+	flex-direction: column;
+}
+.router-container {
+	flex-grow: 1;
+}
 .header {
 	padding-top: rem(58);
 	background-image: linear-gradient(-22deg, #222cc3 0%, #2b7cd6 100%);
@@ -63,9 +72,6 @@ export default {
 	text-align: center;
 	@include font-size(36);
 	color: #fff;
-}
-.tabs {
-	display: flex;
 }
 .tab {
 	position: relative;
