@@ -9,6 +9,8 @@
 		 alt="example"
 		>
 		<p>首页与投资路由已建好，子路由自己添加就可以了</p>
+		<p>用vant组件前，先到vant.js上去引用一下你需要的组件</p>
+		<van-button type="primary">主要按钮</van-button>
 	</div>
 </template>
 

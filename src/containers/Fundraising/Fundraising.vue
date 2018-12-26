@@ -1,23 +1,17 @@
 <template>
-	<div class="full flex fundraising-container">
+	<div class="full fundraising-container">
 		<div class="header">
 			<p class="title">募资</p>
 			<div class="flex">
-				<div
+				<router-link
 				 v-for="tab of tabs"
 				 :key="tab.active"
+				 :to="tab.path"
+				 tag="div"
+				 active-class="active"
 				 class="tab"
-				 :class="{
-					 active: $route.name === tab.active
-				 }"
-				>
-					<router-link
-					 :to="tab.path"
-					 active-class="active"
-					 tag="p"
-					 class="tab-name"
-					>已完成</router-link>
-				</div>
+				 :class="{active: $route.name === tab.active}"
+				>{{tab.title}}</router-link>
 			</div>
 		</div>
 		<div class="router-container">
@@ -58,6 +52,7 @@ export default {
 @import "~style";
 
 .fundraising-container {
+	display: flex;
 	flex-direction: column;
 }
 .router-container {
@@ -78,6 +73,9 @@ export default {
 	flex: 1;
 	padding-bottom: rem(24);
 	opacity: 0.5;
+	text-align: center;
+	color: #fff;
+	@include font-size(30);
 	&.active {
 		opacity: 1;
 		&:after {
@@ -91,10 +89,5 @@ export default {
 			background-color: #fff;
 		}
 	}
-}
-.tab-name {
-	text-align: center;
-	color: #fff;
-	@include font-size(30);
 }
 </style>
