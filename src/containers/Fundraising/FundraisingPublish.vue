@@ -1,10 +1,14 @@
 <template>
-	<h1>已发布</h1>
+	<List />
 </template>
 
 <script>
+import List from './List'
+
 export default {
-	name: 'FundraisingPublish'
+	name: 'FundraisingPublish',
+
+	components: { List }
 };
 </script>
 

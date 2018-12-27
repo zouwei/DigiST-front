@@ -1,10 +1,14 @@
 <template>
-	<h1>已到期</h1>
+	<List />
 </template>
 
 <script>
+import List from './List'
+
 export default {
-	name: 'FundraisingMaturity'
+	name: 'FundraisingMaturity',
+
+	components: { List }
 };
 </script>
 

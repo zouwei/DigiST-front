@@ -5,12 +5,11 @@
 			<div class="flex">
 				<router-link
 				 v-for="tab of tabs"
-				 :key="tab.active"
+				 :key="tab.path"
 				 :to="tab.path"
+				 exact
 				 tag="div"
-				 active-class="active"
 				 class="tab"
-				 :class="{active: $route.name === tab.active}"
 				>{{tab.title}}</router-link>
 			</div>
 		</div>
@@ -29,17 +28,14 @@ export default {
 			tabs: [
 				{
 					title: "已完成",
-					active: "FundraisingComplete",
 					path: "/fundraising"
 				},
 				{
 					title: "已发布",
-					active: "FundraisingPublish",
 					path: "/fundraising/publish"
 				},
 				{
 					title: "已过期",
-					active: "FundraisingMaturity",
 					path: "/fundraising/maturity"
 				}
 			]
@@ -78,7 +74,7 @@ export default {
 	text-align: center;
 	color: #fff;
 	@include font-size(30);
-	&.active {
+	&.router-link-active {
 		opacity: 1;
 		&:after {
 			content: "";

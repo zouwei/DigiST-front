@@ -1,6 +1,9 @@
 <template>
 	<ul>
-		<li class="list-container">
+		<li
+		 @click="$router.push('/fundraising_detail')"
+		 class="list-container"
+		>
 			<div class="list">
 				<div class="list-left">
 					<img
@@ -40,7 +43,7 @@ export default {
 	@include m-r1bb(#ccc);
 }
 .list-left {
-    display: flex;
+	display: flex;
 }
 .logo {
 	width: rem(80);

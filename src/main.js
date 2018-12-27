@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 // vant组件
 import './vant'
+// 全局组件
+import './components/global'
 import 'style/global.scss'
 
 Vue.config.productionTip = false
