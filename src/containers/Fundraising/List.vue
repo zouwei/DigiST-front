@@ -8,7 +8,7 @@
 				<div class="list-left">
 					<img
 					 class="logo"
-					 src="/static/imgs/example.jpg"
+					 src="/static/imgs/example-2.jpg"
 					 alt="logo"
 					>
 					<div class="detail">
