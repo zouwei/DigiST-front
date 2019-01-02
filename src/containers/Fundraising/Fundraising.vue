@@ -16,6 +16,11 @@
 		<div class="router-container">
 			<router-view />
 		</div>
+		<adaptation-img
+		 class="start-fundraising"
+		 src="start-fundraising.png"
+		 alt="开始募资"
+		/>
 	</div>
 </template>
 
@@ -87,5 +92,11 @@ export default {
 			background-color: #fff;
 		}
 	}
+}
+.start-fundraising {
+	position: absolute;
+	right: 0;
+	bottom: rem(205);
+	width: rem(100);
 }
 </style>

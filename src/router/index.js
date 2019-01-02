@@ -17,6 +17,7 @@ const FundraisingComplete = AsyncComponent(import('containers/Fundraising/Fundra
 const FundraisingMaturity = AsyncComponent(import('containers/Fundraising/FundraisingMaturity'))
 const FundraisingPublish = AsyncComponent(import('containers/Fundraising/FundraisingPublish'))
 const FundraisingDetail = AsyncComponent(import('containers/Fundraising/FundraisingDetail'))
+const FundraisingPrecautions = AsyncComponent(import('containers/Fundraising/FundraisingPrecautions'))
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path: '/fundraising_detail',
       name: 'FundraisingDetail',
       component: FundraisingDetail
+    },
+    {
+      path: '/fundraising_precautions',
+      name: 'FundraisingPrecautions',
+      component: FundraisingPrecautions
     },
     {
       path: '/example',
