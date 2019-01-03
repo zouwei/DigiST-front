@@ -6,7 +6,7 @@
 import List from "./List";
 
 export default {
-	name: "FundraisingPublish",
+	name: "Publish",
 
 	components: { List }
 };

@@ -12,7 +12,7 @@
 import List from "./List";
 
 export default {
-	name: "FundraisingComplete",
+	name: "Complete",
 
 	components: { List }
 };

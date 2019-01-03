@@ -6,12 +6,8 @@
 import List from "./List";
 
 export default {
-	name: "FundraisingMaturity",
+	name: "Maturity",
 
 	components: { List }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "~style";
-</style>
