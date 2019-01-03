@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 // 每一个页面样式都要先引一下这个
 @import "~style";
 

@@ -13,9 +13,7 @@ const Investment = AsyncComponent(import('containers/Investment/Investment'))
 
 // 募资相关
 const Fundraising = AsyncComponent(import('containers/Fundraising/Fundraising'))
-const FundraisingComplete = AsyncComponent(import('containers/Fundraising/FundraisingComplete'))
-const FundraisingMaturity = AsyncComponent(import('containers/Fundraising/FundraisingMaturity'))
-const FundraisingPublish = AsyncComponent(import('containers/Fundraising/FundraisingPublish'))
+const FundraisingIndex = AsyncComponent(import('containers/Fundraising/FundraisingIndex'))
 const FundraisingDetail = AsyncComponent(import('containers/Fundraising/FundraisingDetail'))
 const FundraisingPrecautions = AsyncComponent(import('containers/Fundraising/FundraisingPrecautions'))
 
@@ -25,6 +23,15 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/example'
+    },
+    {
+      path: '/example',
+      name: 'Example',
+      component: Example
+    },
+    {
+      path: '/index',
       name: 'Home',
       component: Home
     },
@@ -37,21 +44,12 @@ export default new Router({
       path: '/fundraising',
       name: 'Fundraising',
       component: Fundraising,
+      redirect: '/fundraising/index',
       children: [
         {
-          path: '',
-          name: 'FundraisingComplete',
-          component: FundraisingComplete
-        },
-        {
-          path: 'publish',
-          name: 'FundraisingPublish',
-          component: FundraisingPublish
-        },
-        {
-          path: 'maturity',
-          name: 'FundraisingMaturity',
-          component: FundraisingMaturity
+          path: 'index',
+          name: 'FundraisingIndex',
+          component: FundraisingIndex
         }
       ]
     },
@@ -64,11 +62,6 @@ export default new Router({
       path: '/fundraising_precautions',
       name: 'FundraisingPrecautions',
       component: FundraisingPrecautions
-    },
-    {
-      path: '/example',
-      name: 'Example',
-      component: Example
     }
   ]
 })

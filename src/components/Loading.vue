@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .async-loading-container {
 	position: fixed;
 	top: 0;

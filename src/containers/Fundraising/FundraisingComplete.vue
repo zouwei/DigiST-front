@@ -1,11 +1,11 @@
 <template>
-	<div class="full absolute">
-		<!-- <div class="start-fundraising">
+	<List />
+	<!-- <div class="full absolute">
+		<div class="start-fundraising">
 			<div class="button">发起募资</div>
 			<p class="tips">您还没有发起任何募资</p>
-		</div> -->
-        <List />
-	</div>
+		</div>
+	</div> -->
 </template>
 
 <script>
