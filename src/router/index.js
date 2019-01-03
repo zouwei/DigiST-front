@@ -50,18 +50,18 @@ export default new Router({
           path: 'index',
           name: 'FundraisingIndex',
           component: FundraisingIndex
+        },
+        {
+          path: 'detail',
+          name: 'FundraisingDetail',
+          component: FundraisingDetail
+        },
+        {
+          path: 'precautions',
+          name: 'FundraisingPrecautions',
+          component: FundraisingPrecautions
         }
       ]
-    },
-    {
-      path: '/fundraising_detail',
-      name: 'FundraisingDetail',
-      component: FundraisingDetail
-    },
-    {
-      path: '/fundraising_precautions',
-      name: 'FundraisingPrecautions',
-      component: FundraisingPrecautions
     }
   ]
 })
