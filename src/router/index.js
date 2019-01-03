@@ -13,7 +13,7 @@ const Investment = AsyncComponent(import('containers/Investment/Investment'))
 
 // 募资相关
 const Fundraising = AsyncComponent(import('containers/Fundraising/Fundraising'))
-const FundraisingIndex = AsyncComponent(import('containers/Fundraising/FundraisingIndex'))
+const FundraisingIndex = AsyncComponent(import('containers/Fundraising/FundraisingIndex/index'))
 const FundraisingDetail = AsyncComponent(import('containers/Fundraising/FundraisingDetail'))
 const FundraisingPrecautions = AsyncComponent(import('containers/Fundraising/FundraisingPrecautions'))
 
@@ -50,18 +50,18 @@ export default new Router({
           path: 'index',
           name: 'FundraisingIndex',
           component: FundraisingIndex
+        },
+        {
+          path: 'detail',
+          name: 'FundraisingDetail',
+          component: FundraisingDetail
+        },
+        {
+          path: 'precautions',
+          name: 'FundraisingPrecautions',
+          component: FundraisingPrecautions
         }
       ]
-    },
-    {
-      path: '/fundraising_detail',
-      name: 'FundraisingDetail',
-      component: FundraisingDetail
-    },
-    {
-      path: '/fundraising_precautions',
-      name: 'FundraisingPrecautions',
-      component: FundraisingPrecautions
     }
   ]
 })

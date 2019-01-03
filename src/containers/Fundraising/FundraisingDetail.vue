@@ -1,97 +1,97 @@
 <template>
-	<div class="full fundraising-detail">
-		<div class="header">
+	<base-container>
+		<base-header
+		 slot="header"
+		 title="详情"
+		 :back="true"
+		>
 			<adaptation-img
-			 class="back"
-			 src="back.png"
-			 alt="back"
-			/>
-			<span class="title">详情</span>
-			<adaptation-img
+			 slot="right"
 			 class="collection"
 			 src="collection-detail.png"
 			 alt="collection-detail"
 			/>
-		</div>
-		<div class="detail-container">
-			<!-- 滚动外层盒子 -->
-			<div class="out-scroll absolute">
-				<!-- 介绍 -->
-				<div class="introduction">
-					<div class="logo">
-						<img
-						 src="/static/imgs/example-2.jpg"
-						 alt="logo"
-						>
-						<span class="company-name">GKS</span>
-					</div>
-					<p class="text">从 2015 年 4 月起，Ant Design 在蚂蚁金服中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+		</base-header>
+		<!-- 滚动外层盒子 -->
+		<div
+		 slot="content"
+		 class="full scroll"
+		>
+			<!-- 介绍 -->
+			<div class="introduction">
+				<div class="logo">
+					<img
+					 src="/static/imgs/example-2.jpg"
+					 alt="logo"
+					>
+					<span class="company-name">GKS</span>
 				</div>
-				<!-- 详情 -->
-				<ul class="detail-list">
-					<li class="detail-item">
-						<span class="label">项目估值</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">项目代币</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">筹集规模</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">筹集模式</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">最低认购</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">投资年限</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">股权收益权</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">提前退出窗口</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">智能合约类型</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">拍照类型</span>
-						<span class="value">100亿元</span>
-					</li>
-				</ul>
-				<!-- 目标 -->
-				<ul class="detail-list">
-					<li class="detail-item">
-						<span class="label">目标</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">已筹集</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">剩余</span>
-						<span class="value">100亿元</span>
-					</li>
-					<li class="detail-item">
-						<span class="label">参与人数</span>
-						<span class="value">100亿元</span>
-					</li>
-				</ul>
+				<p class="text">从 2015 年 4 月起，Ant Design 在蚂蚁金服中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
 			</div>
+			<!-- 详情 -->
+			<ul class="detail-list">
+				<li class="detail-item">
+					<span class="label">项目估值</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">项目代币</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">筹集规模</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">筹集模式</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">最低认购</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">投资年限</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">股权收益权</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">提前退出窗口</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">智能合约类型</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">拍照类型</span>
+					<span class="value">100亿元</span>
+				</li>
+			</ul>
+			<!-- 目标 -->
+			<ul class="detail-list">
+				<li class="detail-item">
+					<span class="label">目标</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">已筹集</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">剩余</span>
+					<span class="value">100亿元</span>
+				</li>
+				<li class="detail-item">
+					<span class="label">参与人数</span>
+					<span class="value">100亿元</span>
+				</li>
+			</ul>
 		</div>
-	</div>
+	</base-container>
 </template>
 
 <script>
@@ -103,31 +103,12 @@ export default {
 <style lang="scss" scoped>
 @import "~style";
 
-.fundraising-detail {
-	display: flex;
-	flex-direction: column;
-}
-.header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: rem(66) rem(33) rem(26) rem(26);
-	background-image: linear-gradient(-22deg, #222cc3 0%, #2b7cd6 100%);
-}
-.back {
-	width: rem(20);
-}
-.title {
-	@include font-size(36);
-	color: #fff;
-}
 .collection {
+	display: block;
 	width: rem(36);
 }
 .detail-container {
 	overflow-y: auto;
-	position: relative;
-	flex-grow: 1;
 }
 .out-scroll {
 	min-height: 100%;

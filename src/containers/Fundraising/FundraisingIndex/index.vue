@@ -30,34 +30,34 @@
 </template>
 
 <script>
-import FundraisingComplete from "./FundraisingComplete";
-import FundraisingMaturity from "./FundraisingMaturity";
-import FundraisingPublish from "./FundraisingPublish";
+import Complete from "./Complete";
+import Maturity from "./Maturity";
+import Publish from "./Publish";
 
 export default {
 	name: "FundraisingIndex",
 
 	components: {
-		FundraisingComplete,
-		FundraisingMaturity,
-		FundraisingPublish
+		Complete,
+		Maturity,
+		Publish
 	},
 
 	data() {
 		return {
-			renderComponentName: "FundraisingComplete",
+			renderComponentName: "Complete",
 			tabs: [
 				{
 					title: "已完成",
-					name: "FundraisingComplete"
+					name: "Complete"
 				},
 				{
 					title: "已发布",
-					name: "FundraisingPublish"
+					name: "Publish"
 				},
 				{
 					title: "已过期",
-					name: "FundraisingMaturity"
+					name: "Maturity"
 				}
 			]
 		};
