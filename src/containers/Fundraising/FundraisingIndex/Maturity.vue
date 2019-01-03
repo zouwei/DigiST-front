@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import List from './List'
+import List from "./List";
 
 export default {
-	name: 'FundraisingPublish',
+	name: "FundraisingMaturity",
 
 	components: { List }
 };

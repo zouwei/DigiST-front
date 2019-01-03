@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import List from './List'
+import List from "./List";
 
 export default {
-	name: 'FundraisingComplete',
+	name: "FundraisingComplete",
 
 	components: { List }
 };
