@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import {
-    Button
+    Button,
+    Search,
+    Icon,
+    Tag
 } from 'vant'
 
-Vue.use(Button)
+Vue.use(Button).use(Search).use(Icon).use(Tag)

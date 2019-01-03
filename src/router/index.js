@@ -23,13 +23,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/example'
+      redirect: '/index'
     },
-    {
-      path: '/example',
-      name: 'Example',
-      component: Example
-    },
+    // {
+    //   path: '/example',
+    //   name: 'Example',
+    //   component: Example
+    // },
     {
       path: '/index',
       name: 'Home',
