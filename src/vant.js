@@ -3,7 +3,16 @@ import {
     Button,
     Search,
     Icon,
-    Tag
+    Tag,
+    Field,
+    Cell,
+    CellGroup
 } from 'vant'
 
-Vue.use(Button).use(Search).use(Icon).use(Tag)
+Vue.use(Button)
+    .use(Search)
+    .use(Icon)
+    .use(Tag)
+    .use(Field)
+    .use(Cell)
+    .use(CellGroup)

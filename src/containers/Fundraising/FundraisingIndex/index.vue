@@ -32,7 +32,7 @@
 <script>
 import Complete from "./Complete";
 import Maturity from "./Maturity";
-import Publish from "./Publish";
+import Published from "./Published";
 
 export default {
 	name: "FundraisingIndex",
@@ -40,7 +40,7 @@ export default {
 	components: {
 		Complete,
 		Maturity,
-		Publish
+		Published
 	},
 
 	data() {

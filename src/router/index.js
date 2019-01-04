@@ -2,9 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import AsyncComponent from './AsyncComponent'
 
-// 组件要这样引用
-const Example = AsyncComponent(import('components/Example'))
-
 // 首页相关
 const Home = AsyncComponent(import('containers/Home/Home'))
 
@@ -16,6 +13,7 @@ const Fundraising = AsyncComponent(import('containers/Fundraising/Fundraising'))
 const FundraisingIndex = AsyncComponent(import('containers/Fundraising/FundraisingIndex/index'))
 const FundraisingDetail = AsyncComponent(import('containers/Fundraising/FundraisingDetail'))
 const FundraisingPrecautions = AsyncComponent(import('containers/Fundraising/FundraisingPrecautions'))
+const FundraisingStart = AsyncComponent(import('containers/Fundraising/FundraisingStart/index'))
 
 Vue.use(Router)
 
@@ -25,11 +23,6 @@ export default new Router({
       path: '/',
       redirect: '/index'
     },
-    // {
-    //   path: '/example',
-    //   name: 'Example',
-    //   component: Example
-    // },
     {
       path: '/index',
       name: 'Home',
@@ -60,6 +53,11 @@ export default new Router({
           path: 'precautions',
           name: 'FundraisingPrecautions',
           component: FundraisingPrecautions
+        },
+        {
+          path: 'start',
+          name: 'FundraisingStart',
+          component: FundraisingStart
         }
       ]
     }
