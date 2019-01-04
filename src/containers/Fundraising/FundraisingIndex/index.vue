@@ -53,7 +53,7 @@ export default {
 				},
 				{
 					title: "已发布",
-					name: "Publish"
+					name: "Published"
 				},
 				{
 					title: "已过期",

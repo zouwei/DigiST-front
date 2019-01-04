@@ -8,8 +8,8 @@
 
 <script>
 export default {
-	name: 'Loading'
-}
+	name: "Loading"
+};
 </script>
 
 <style lang="scss">
@@ -19,14 +19,15 @@ export default {
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 9999;
 }
 .async-loading {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
-    padding: 10px;
-    border-radius: 5px;
-	background-color: rgba(0, 0, 0, .6);
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 </style>

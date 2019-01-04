@@ -1,11 +1,31 @@
 <template>
-	<ul>
+	<ul class="list">
 		<li
 		 @click="$router.push('/fundraising_detail')"
-		 class="list-container"
+		 class="item-container"
 		>
-			<div class="list">
-				<div class="list-left">
+			<div class="item">
+				<div class="item-left">
+					<img
+					 class="logo"
+					 src="/static/imgs/example-2.jpg"
+					 alt="logo"
+					>
+					<div class="detail">
+						<span class="name">GKS</span>
+						<br>
+						<span class="target">目标 10True</span>
+					</div>
+				</div>
+				<span class="schedule">以募集</span>
+			</div>
+		</li>
+		<li
+		 @click="$router.push('/fundraising_detail')"
+		 class="item-container"
+		>
+			<div class="item">
+				<div class="item-left">
 					<img
 					 class="logo"
 					 src="/static/imgs/example-2.jpg"
@@ -32,17 +52,24 @@ export default {
 <style lang="scss" scoped>
 @import "~style";
 
-.list-container {
-	padding: 0 rem(30);
-}
 .list {
+	background-color: #fff;
+}
+.item-container {
+	padding: 0 rem(30);
+	&:not(:last-child) {
+		.item {
+			@include m-r1bb(#ccc);
+		}
+	}
+}
+.item {
 	display: flex;
 	height: rem(140);
 	align-items: center;
 	justify-content: space-between;
-	@include m-r1bb(#ccc);
 }
-.list-left {
+.item-left {
 	display: flex;
 }
 .logo {

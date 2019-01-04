@@ -45,14 +45,6 @@
 				<span class="label">提前退出窗口</span>
 				<span class="value">100亿元</span>
 			</li>
-			<li class="detail-item">
-				<span class="label">智能合约类型</span>
-				<span class="value">100亿元</span>
-			</li>
-			<li class="detail-item">
-				<span class="label">拍照类型</span>
-				<span class="value">100亿元</span>
-			</li>
 		</ul>
 		<div class="submit-container">
 			<div class="submit-button">下一步</div>
@@ -79,10 +71,10 @@ export default {
 
 .review {
 	padding-bottom: rem(60);
+	background-color: #f4f4f4;
 }
 .submit-container {
-    padding: rem(40) 0 rem(20);
-    // margin-top: rem(40);
+	padding: rem(40) rem(20) 0;
 }
 .submit-button {
 	border-radius: rem(12);

@@ -6,7 +6,10 @@ import {
     Tag,
     Field,
     Cell,
-    CellGroup
+    CellGroup,
+    RadioGroup,
+    Radio,
+    Loading
 } from 'vant'
 
 Vue.use(Button)
@@ -16,3 +19,6 @@ Vue.use(Button)
     .use(Field)
     .use(Cell)
     .use(CellGroup)
+    .use(RadioGroup)
+    .use(Radio)
+    .use(Loading)

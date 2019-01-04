@@ -15,14 +15,14 @@
 				<template>
 					<adaptation-img
 					 class="step-img"
-					 src="step-review.png"
+					 src="step-review-active.png"
 					 alt="step-review"
 					/>
 				</template>
 				<template>
 					<adaptation-img
 					 class="step-img"
-					 src="step-publish.png"
+					 src="step-publish-active.png"
 					 alt="step-publish"
 					/>
 				</template>
@@ -49,7 +49,7 @@ export default {
 
 	data() {
 		return {
-			renderComponentName: "Review"
+			renderComponentName: "Publish"
 		};
 	}
 };
