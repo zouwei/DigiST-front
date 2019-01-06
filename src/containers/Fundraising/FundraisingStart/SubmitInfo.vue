@@ -39,9 +39,12 @@
 			/>
 		</van-cell-group>
 		<div class="submit-container">
-			<div class="submit-button">提交审核</div>
+			<div
+			 class="submit-button"
+			 @click="$emit('change-step', 'Review')"
+			>提交审核</div>
 		</div>
-        <p class="tips">点击按钮即表明我已了解平台只提供当前募资方案</p>
+		<p class="tips">点击按钮即表明我已了解平台只提供当前募资方案</p>
 	</div>
 </template>
 
@@ -63,7 +66,7 @@ export default {
 @import "~style";
 
 .submit-info {
-    padding-bottom: rem(60);
+	padding-bottom: rem(60);
 }
 .submit-container {
 	padding: 0 rem(20);
@@ -77,8 +80,8 @@ export default {
 	background-image: linear-gradient(44deg, #222cc3 0%, #2b7cd6 100%);
 }
 .tips {
-    text-align: center;
-    @include font-size(20);
-    color: #8C8C8C;
+	text-align: center;
+	@include font-size(20);
+	color: #8c8c8c;
 }
 </style>

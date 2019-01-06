@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "echarts": "^4.2.0-rc.2",
     "vant": "^1.5.0-beta2",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",

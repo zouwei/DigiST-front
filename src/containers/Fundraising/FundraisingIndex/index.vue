@@ -25,6 +25,7 @@
 		 class="start-fundraising"
 		 src="start-fundraising.png"
 		 alt="开始募资"
+		 @click.native="$router.push('/fundraising/precautions')"
 		/>
 	</base-container>
 </template>

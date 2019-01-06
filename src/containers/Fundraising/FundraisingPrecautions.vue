@@ -15,7 +15,10 @@
 				There is no better advertisement campaign that is low cost and also successful at the same time.<br>
 				There is no better advertisement campaign that is low cost and also successful at the same time.
 			</p>
-			<div class="button">发起募资</div>
+			<div
+			 class="button"
+			 @click="$router.push('/fundraising/start')"
+			>发起募资</div>
 			<p class="protocol">点击按钮即表明我已阅读并同意<span class="protocol-link">用户使用条款</span></p>
 		</div>
 	</base-container>

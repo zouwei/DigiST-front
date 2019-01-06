@@ -12,23 +12,29 @@
 				 src="step-submit-active.png"
 				 alt="step-submit"
 				/>
-				<template>
-					<adaptation-img
-					 class="step-img"
-					 src="step-review-active.png"
-					 alt="step-review"
-					/>
-				</template>
-				<template>
-					<adaptation-img
-					 class="step-img"
-					 src="step-publish-active.png"
-					 alt="step-publish"
-					/>
-				</template>
+				<adaptation-img
+				 class="step-img"
+				 :src="`step-review${renderComponentName === 'Review' ? '-active' : ''}.png`"
+				 alt="step-review"
+				/>
+				<adaptation-img
+				 class="step-img"
+				 :src="`step-publish${renderComponentName === 'Publish' ? '-active' : ''}.png`"
+				 alt="step-publish"
+				/>
 			</div>
-			<p class="tips color-error">*请填写并确认所有信息</p>
-			<component :is="renderComponentName" />
+			<p class="tips under-review">
+				<adaptation-img
+				 class="coffee-img"
+				 src="coffee.png"
+				 alt="step-submit"
+				/>
+				<span>您的项目正在审核中，请耐心等候…</span>
+			</p>
+			<component
+			 :is="renderComponentName"
+			 @change-step="changeStep"
+			/>
 		</template>
 	</base-container>
 </template>
@@ -49,8 +55,14 @@ export default {
 
 	data() {
 		return {
-			renderComponentName: "Publish"
+			renderComponentName: "Review"
 		};
+	},
+
+	methods: {
+		changeStep(stepName) {
+			this.renderComponentName = stepName;
+		}
 	}
 };
 </script>
@@ -68,8 +80,25 @@ export default {
 	height: rem(60);
 }
 .tips {
-	line-height: rem(88);
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: rem(88);
 	@include font-size(24);
+	&.under-review {
+		height: rem(180);
+		color: #2B7CD6;
+	}
+	&.pass-review {
+		color: #019D50;
+	}
+	&.fail-review {
+		color: #FA2400;
+	}
+}
+.coffee-img {
+	width: rem(56);
+	height: rem(56);
+	margin-right: rem(20);
 }
 </style>

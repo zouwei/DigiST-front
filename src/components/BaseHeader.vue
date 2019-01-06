@@ -6,6 +6,7 @@
 			 class="header-back"
 			 src="back.png"
 			 alt="back"
+			 @click.native="$router.go(-1)"
 			/>
 			<em v-else />
 			<span class="header-title">{{title}}</span>

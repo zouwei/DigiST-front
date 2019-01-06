@@ -90,13 +90,62 @@
 					<span class="value">100亿元</span>
 				</li>
 			</ul>
+			<div
+			 ref="numberOfPeople"
+			 class="number-of-people"
+			/>
 		</div>
 	</base-container>
 </template>
 
 <script>
+// 引入 ECharts 主模块
+const echarts = require("echarts/lib/echarts");
+require("echarts/lib/theme/light");
+// 引入柱状图
+require("echarts/lib/chart/bar");
+// 引入提示框和标题组件
+// require("echarts/lib/component/tooltip");
+// require("echarts/lib/component/title");
+
 export default {
-	name: "FundraisingDetail"
+	name: "FundraisingDetail",
+
+	data() {
+		return {
+			numberOfPeopleOption: {
+				xAxis: {
+					type: "category",
+					data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+				},
+				yAxis: {
+					type: "value"
+				},
+				series: [
+					{
+						data: [120, 200, 150, 80, 70, 110, 130],
+						type: "bar",
+						label: {
+							normal: {
+								show: true
+							}
+						}
+					}
+				]
+			}
+		};
+	},
+
+	methods: {
+		initEcharts() {
+			const numberOfPeople = echarts.init(this.$refs.numberOfPeople, 'light');
+			numberOfPeople.setOption(this.numberOfPeopleOption);
+		}
+	},
+
+	mounted() {
+		this.initEcharts();
+	}
 };
 </script>
 
@@ -151,5 +200,9 @@ export default {
 .value {
 	@include font-size(32);
 	color: #999;
+}
+.number-of-people {
+	height: rem(634);
+	background-color: #fff;
 }
 </style>
