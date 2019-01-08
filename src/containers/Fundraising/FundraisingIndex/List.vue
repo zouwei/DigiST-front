@@ -1,7 +1,7 @@
 <template>
 	<ul class="list">
 		<li
-		 @click="$router.push('/fundraising_detail')"
+		 @click="$router.push('/fundraising/detail')"
 		 class="item-container"
 		>
 			<div class="item">

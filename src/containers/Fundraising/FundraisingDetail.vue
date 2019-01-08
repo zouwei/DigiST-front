@@ -94,6 +94,10 @@
 			 ref="numberOfPeople"
 			 class="number-of-people"
 			/>
+			<div
+			 ref="funds"
+			 class="funds"
+			/>
 		</div>
 	</base-container>
 </template>
@@ -101,25 +105,95 @@
 <script>
 // 引入 ECharts 主模块
 const echarts = require("echarts/lib/echarts");
+// 两个主题
 require("echarts/lib/theme/light");
+require("echarts/lib/theme/dark");
+// 引入标题组件
+require("echarts/lib/component/title");
 // 引入柱状图
 require("echarts/lib/chart/bar");
-// 引入提示框和标题组件
-// require("echarts/lib/component/tooltip");
-// require("echarts/lib/component/title");
+// 引入折线图
+require("echarts/lib/chart/line");
 
 export default {
 	name: "FundraisingDetail",
 
 	data() {
 		return {
-			numberOfPeopleOption: {
+			fundsOption: {
+				title: {
+					text: "募资资金",
+					textStyle: {
+						align: "center",
+						fontSize: 16
+					},
+					top: 10
+				},
+				grid: {
+					left: "15%"
+				},
 				xAxis: {
 					type: "category",
-					data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+					boundaryGap: false,
+					data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+					axisTick: {
+						show: false
+					},
+					axisLine: {
+						show: false
+					}
 				},
 				yAxis: {
-					type: "value"
+					type: "value",
+					axisTick: {
+						show: false
+					},
+					axisLine: {
+						show: false
+					},
+					splitLine: {
+						show: false
+					}
+				},
+				series: [
+					{
+						data: [820, 932, 901, 934, 1290, 1330, 1320],
+						type: "line",
+						smooth: true,
+						itemStyle: {
+							opacity: 0
+						},
+						lineStyle: {
+							color: "#4D85E6"
+						},
+						areaStyle: {
+							color: "#4D85E6"
+						}
+					}
+				]
+			},
+			numberOfPeopleOption: {
+				title: {
+					text: "募资人数",
+					textStyle: {
+						align: "center",
+						fontSize: 16
+					},
+					top: 10
+				},
+				xAxis: {
+					type: "category",
+					data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+					axisTick: {
+						show: false
+					},
+					axisLine: {
+						show: false
+					}
+				},
+				yAxis: {
+					type: "value",
+					show: false
 				},
 				series: [
 					{
@@ -138,8 +212,13 @@ export default {
 
 	methods: {
 		initEcharts() {
-			const numberOfPeople = echarts.init(this.$refs.numberOfPeople, 'light');
+			const numberOfPeople = echarts.init(
+				this.$refs.numberOfPeople,
+				"light"
+			);
 			numberOfPeople.setOption(this.numberOfPeopleOption);
+			const funds = echarts.init(this.$refs.funds, "dark");
+			funds.setOption(this.fundsOption);
 		}
 	},
 
@@ -204,5 +283,9 @@ export default {
 .number-of-people {
 	height: rem(634);
 	background-color: #fff;
+}
+.funds {
+	height: rem(828);
+	// background-color: #000;
 }
 </style>
