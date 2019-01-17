@@ -1,6 +1,11 @@
 <template>
-	<div >
-		<div>
+	<!-- <div >
+		<div >
+			
+
+		</div> -->
+		
+		<base-container>
 			<form action="/" >
 				<van-search
 					v-model="value"
@@ -11,10 +16,6 @@
 				<div slot="action" @click="onSearch">搜索</div>
 				</van-search>
 			</form>
-
-		</div>
-		
-		<base-container>
 			<base-header  slot="header" title="">
 				
 				<div slot="bottom"  class="tab-container">
@@ -27,13 +28,13 @@
 					>{{tab.title}}</div>
 				</div>
 			</base-header>
-		<component
-		 slot="content"
-		 :is="renderComponentName"
-		/>
+			<component
+			slot="content"
+			:is="renderComponentName"
+			/>
 		
-	</base-container>
-	</div>
+		</base-container>
+	<!-- </div> -->
 
 	
 

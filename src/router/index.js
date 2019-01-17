@@ -6,7 +6,9 @@ import AsyncComponent from './AsyncComponent'
 const Home = AsyncComponent(import('containers/Home/Home'))
 
 // 投资相关
-const Investment = AsyncComponent(import('containers/Investment/Investment'))
+const Investment = AsyncComponent(import('containers/Investment/Index'))
+const InvestmentDetail = AsyncComponent(import('containers/Investment/Detail'))
+
 
 // 募资相关
 const Fundraising = AsyncComponent(import('containers/Fundraising/Fundraising'))
@@ -31,7 +33,20 @@ export default new Router({
     {
       path: '/investment',
       name: 'Investment',
-      component: Investment
+      component: Investment,
+      redirect: '/investment/index',
+      children: [
+        {
+          path: 'index',
+          name: 'Investment',
+          component: Investment
+        },
+        {
+          path: 'detail',
+          name: 'InvestmentDetail',
+          component: InvestmentDetail
+        }
+      ]
     },
     {
       path: '/fundraising',

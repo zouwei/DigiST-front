@@ -1,6 +1,6 @@
 <template>
-	<!-- <List /> -->
-    <SearchInit />
+	<List />
+    <!-- <SearchInit /> -->
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import SearchInit from './SearchInit'
 export default {
 	name: 'Hot',
 
-	components: { List ,SearchInit}
+	components: { List }
 };
 </script>
 
