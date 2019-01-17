@@ -1,11 +1,11 @@
 <template>
-	<ul>
+	<ul class="list">
 		<li
-		 @click="$router.push('/fundraising_detail')"
-		 class="list-container"
+		 @click="$router.push('/fundraising/detail')"
+		 class="item-container"
 		>
-			<div class="list">
-				<div class="list-left">
+			<div class="item">
+				<div class="item-left">
 					<img
 					 class="logo"
 					 src="/static/imgs/example-2.jpg"
@@ -25,8 +25,8 @@
 
 <script>
 export default {
-	name: 'List'
-}
+	name: "List"
+};
 </script>
 
 <style lang="scss" scoped>
