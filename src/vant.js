@@ -9,7 +9,8 @@ import {
     CellGroup,
     RadioGroup,
     Radio,
-    Loading
+    Loading,
+    List
 } from 'vant'
 
 Vue.use(Button)
@@ -22,3 +23,4 @@ Vue.use(Button)
     .use(RadioGroup)
     .use(Radio)
     .use(Loading)
+    .use(List)

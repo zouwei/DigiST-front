@@ -1,7 +1,13 @@
 <template>
-	<ul class="list">
-		<li
-		 @click="$router.push('/fundraising/detail')"
+	<van-list
+	 :loading="listLoading"
+	 :finished="loadFinished"
+	 :offset="0"
+	 @load="listLoad"
+	>
+		<router-link
+		 tag="div"
+		 to="/fundraising/detail"
 		 class="item-container"
 		>
 			<div class="item">
@@ -19,9 +25,10 @@
 				</div>
 				<span class="schedule">以募集</span>
 			</div>
-		</li>
-		<li
-		 @click="$router.push('/fundraising/detail')"
+		</router-link>
+		<router-link
+		 tag="div"
+		 to="/fundraising/detail"
 		 class="item-container"
 		>
 			<div class="item">
@@ -39,24 +46,35 @@
 				</div>
 				<span class="schedule">以募集</span>
 			</div>
-		</li>
-	</ul>
+		</router-link>
+	</van-list>
 </template>
 
 <script>
 export default {
-	name: "List"
+	name: "List",
+
+	data() {
+		return {
+			listLoading: false,
+			loadFinished: false
+		};
+	},
+
+	methods: {
+		listLoad() {
+			console.log(1);
+		}
+	}
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~style";
 
-.list {
-	background-color: #fff;
-}
 .item-container {
 	padding: 0 rem(30);
+	background-color: #fff;
 	&:not(:last-child) {
 		.item {
 			@include m-r1bb(#ccc);
