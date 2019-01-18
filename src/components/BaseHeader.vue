@@ -1,6 +1,10 @@
 <template>
 	<header class="base-header-container">
-		<div class="base-header">
+		<slot name="top" />
+		<div
+		 v-if="isNeedCenter"
+		 class="base-header-center"
+		>
 			<adaptation-img
 			 v-if="back"
 			 class="header-back"
@@ -27,7 +31,11 @@ export default {
 			type: Boolean,
 			default: false
 		},
-		title: null
+		title: null,
+		isNeedCenter: {
+			type: Boolean,
+			default: true
+		}
 	}
 };
 </script>
@@ -38,7 +46,7 @@ export default {
 .base-header-container {
 	background-image: linear-gradient(-22deg, #222cc3 0%, #2b7cd6 100%);
 }
-.base-header {
+.base-header-center {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

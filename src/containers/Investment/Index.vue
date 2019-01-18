@@ -1,130 +1,78 @@
 <template>
-<div>44466</div>
-</template>
-
-<script>
-export default {
-	name: 'Investment'
-};
-</script>
-
-<style lang="scss" scoped>
-@import "~style";
-</style>
-<template>
 	<base-container>
 		<base-header
 		 slot="header"
-		 title="详情"
-		 :back="true"
+		 :is-need-center="false"
 		>
-			<adaptation-img
-			 slot="right"
-			 class="collection"
-			 src="collection-detail.png"
-			 alt="collection-detail"
-			/>
-		</base-header>
-		<!-- 滚动外层盒子 -->
-		<div
-		 slot="content"
-		 class="full scroll"
-		>
-			<!-- 介绍 -->
-			<div class="introduction">
-				<div class="logo">
-					<img
-					 src="/static/imgs/example-2.jpg"
-					 alt="logo"
+			<div
+			 slot="top"
+			 class="search-container"
+			>
+				<form action="/">
+					<van-search
+					 v-model="value"
+					 placeholder="搜索项目"
+					 background="transparent"
+					 @search="onSearch"
 					>
-					<span class="company-name">GKS</span>
-				</div>
-				<p class="text">从 2015 年 4 月起，Ant Design 在蚂蚁金服中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+						<div
+						 slot="action"
+						 @click="onSearch"
+						>搜索</div>
+					</van-search>
+				</form>
 			</div>
-			<!-- 详情 -->
-			<ul class="detail-list">
-				<li class="detail-item">
-					<span class="label">项目估值</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">项目代币</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">筹集规模</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">筹集模式</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">最低认购</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">投资年限</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">股权收益权</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">提前退出窗口</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">智能合约类型</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">牌照类型</span>
-					<span class="value">100亿元</span>
-				</li>
-			</ul>
-			<!-- 目标 -->
-			<ul class="detail-list">
-				<li class="detail-item">
-					<span class="label">投资数量</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">消耗</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">到期时间</span>
-					<span class="value">100亿元</span>
-				</li>
-				<li class="detail-item">
-					<span class="label">等值</span>
-					<span class="value">100亿元</span>
-				</li>
-			</ul>
-			
-		</div>
+			<div
+			 slot="bottom"
+			 class="tab-container"
+			>
+				<div
+				 v-for="tab of tabs"
+				 :key="tab.name"
+				 class="tab"
+				 :class="{active: tab.name === renderComponentName}"
+				 @click="renderComponentName = tab.name"
+				>{{tab.title}}</div>
+			</div>
+		</base-header>
+		<component
+		 :is="renderComponentName"
+		 slot="content"
+		/>
 	</base-container>
 </template>
 
 <script>
-
+import Hot from "./Doing";
+import SelfChoice from "./Done";
 
 export default {
-	name: "Investment",
+	name: "Home",
+
+	components: {
+		Hot,
+		SelfChoice
+	},
 
 	data() {
 		return {
-			
+			renderComponentName: "Hot",
+			value: "",
+			tabs: [
+				{
+					title: "热门",
+					name: "Hot"
+				},
+				{
+					title: "自选",
+					name: "SelfChoice"
+				}
+			]
 		};
 	},
-
 	methods: {
-		
-	},
-
-	mounted() {
+		onSearch() {},
+		onCancel() {}
 	}
 };
 </script>
@@ -132,61 +80,39 @@ export default {
 <style lang="scss" scoped>
 @import "~style";
 
-.collection {
-	display: block;
-	width: rem(36);
+.search-container {
+	padding-top: 20px;
 }
-.detail-container {
-	overflow-y: auto;
+.tab-container {
+	display: flex;
+	margin-top: rem(16);
 }
-.out-scroll {
-	min-height: 100%;
-	background-color: #f4f4f4;
-}
-.introduction {
-	padding: rem(30);
-	margin-bottom: rem(20);
-	background-color: #fff;
-}
-.logo {
-	margin-bottom: rem(30);
-	img {
-		width: rem(80);
-		height: rem(80);
-		margin-right: rem(20);
-		vertical-align: middle;
+.tab {
+	position: relative;
+	flex: 1;
+	padding-bottom: rem(24);
+	opacity: 0.5;
+	text-align: center;
+	color: #fff;
+	@include font-size(30);
+	&.active {
+		opacity: 1;
+		&:after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate3d(-50%, 0, 0);
+			width: rem(50);
+			height: rem(6);
+			background-color: #fff;
+		}
 	}
 }
-.company-name {
-	@include font-size(30);
-}
-.text {
-	@include font-size(24);
-	color: #999;
-}
-.detail-list {
-	margin-bottom: rem(20);
-	background-color: #fff;
-}
-.detail-item {
-	display: flex;
-	justify-content: space-between;
-	padding: rem(22) rem(30);
-}
-.label {
-	@include font-size(32);
-	color: #333;
-}
-.value {
-	@include font-size(32);
-	color: #999;
-}
-.number-of-people {
-	height: rem(634);
-	background-color: #fff;
-}
-.funds {
-	height: rem(828);
-	// background-color: #000;
+.start-fundraising {
+	position: absolute;
+	right: 0;
+	bottom: rem(205);
+	width: rem(100);
 }
 </style>

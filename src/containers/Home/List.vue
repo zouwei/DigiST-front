@@ -1,43 +1,66 @@
 <template>
 	<ul class="list">
 		<li
-		 @click="$router.push('/fundraising/detail')"
+		 @click="$router.push('/investment/detail')"
 		 class="item-container"
 		>
 			<div class="item">
 				<div class="item-left">
 					<img
+					 class="star"
+					 src="/static/imgs/whiteStar.png"
+					 alt="logo"
+					>
+					<img
 					 class="logo"
 					 src="/static/imgs/example-2.jpg"
 					 alt="logo"
 					>
-					<div class="detail">
-						<span class="name">GKS</span>
+					<div class="count">
+						<span class="name">BI</span>
 						<br>
-						<span class="target">目标 10True</span>
+						<span class="target">1BI = ¥10</span>
+					</div>
+					<div class="count">
+						<span class="name">1021 BI</span>
+						<br>
+						<span class="target">已募集</span>
 					</div>
 				</div>
-				<span class="schedule">以募集</span>
+
+				<span class="schedule">Reg S</span>
 			</div>
 		</li>
+		
 		<li
-		 @click="$router.push('/fundraising/detail')"
+		 @click="$router.push('/investment/detail')"
 		 class="item-container"
 		>
 			<div class="item">
 				<div class="item-left">
 					<img
+					 class="star"
+					 src="/static/imgs/whiteStar.png"
+					 alt="logo"
+					>
+					<img
 					 class="logo"
 					 src="/static/imgs/example-2.jpg"
 					 alt="logo"
 					>
-					<div class="detail">
-						<span class="name">GKS</span>
+					<div class="count">
+						<span class="name">DIDI</span>
 						<br>
-						<span class="target">目标 10True</span>
+						<span class="target">1DIDI = ¥2</span>
+					</div>
+					<div class="count">
+						<span class="name">2002 DIDI</span>
+						<br>
+						<span class="target">已募集</span>
 					</div>
 				</div>
-				<span class="schedule">以募集</span>
+
+				<span class="schedule">Reg S</span>
 			</div>
 		</li>
 	</ul>
@@ -72,11 +95,20 @@ export default {
 .item-left {
 	display: flex;
 }
+.star {
+	width: rem(30);
+	height: rem(30);
+	margin: rem(30) rem(20);
+}
 .logo {
 	width: rem(80);
 	height: rem(80);
 	margin-right: rem(20);
 	border-radius: 50%;
+}
+.count {
+	width: rem(160);
+	margin-right: rem(50)
 }
 .name {
 	@include font-size(30);
@@ -87,7 +119,8 @@ export default {
 }
 .schedule {
 	float: right;
-	@include font-size(24);
+	@include font-size(30);
 	color: #4e84e6;
 }
+
 </style>
