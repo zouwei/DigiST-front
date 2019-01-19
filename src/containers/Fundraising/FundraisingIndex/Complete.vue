@@ -1,20 +1,38 @@
 <template>
-	<List />
-	<!-- <div class="full absolute">
-		<div class="start-fundraising">
-			<div class="button">发起募资</div>
-			<p class="tips">您还没有发起任何募资</p>
+	<div>
+		<div
+		 v-if="isShowStartFundraising"
+		 class="full absolute"
+		>
+			<div class="start-fundraising">
+				<div class="button">发起募资</div>
+				<p class="tips">您还没有发起任何募资</p>
+			</div>
 		</div>
-	</div> -->
+		<template v-else>
+			<List
+			 data-type="raise"
+			 @show-start-fundraising="isShowStartFundraising = true"
+			/>
+			<start-fundraising-flot />
+		</template>
+	</div>
 </template>
 
 <script>
 import List from "./List";
+import StartFundraisingFlot from "./StartFundraisingFlot";
 
 export default {
 	name: "Complete",
 
-	components: { List }
+	components: { List, StartFundraisingFlot },
+
+	data() {
+		return {
+			isShowStartFundraising: false
+		};
+	}
 };
 </script>
 

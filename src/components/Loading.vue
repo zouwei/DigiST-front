@@ -1,14 +1,27 @@
 <template>
-	<div class="async-loading-container">
+	<!-- <div class="async-loading-container">
 		<div class="async-loading">
 			<van-loading />
 		</div>
-	</div>
+	</div> -->
+	<em />
 </template>
 
 <script>
 export default {
-	name: "Loading"
+	name: "Loading",
+
+	mounted() {
+		this.$toast.loading({
+			mask: true,
+			message: "加载中...",
+			duration: 0
+		});
+	},
+
+	beforeDestroy() {
+		this.$toast.clear();
+	}
 };
 </script>
 

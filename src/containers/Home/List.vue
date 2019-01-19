@@ -1,23 +1,16 @@
 <template>
 	<ul class="list">
 		<li
-<<<<<<< HEAD
 		 @click="$router.push('/investment/detail')"
-=======
-		 @click="$router.push('/fundraising/detail')"
->>>>>>> 87bf25ebd9cce841b6759615c5ece292bc07925c
 		 class="item-container"
 		>
 			<div class="item">
 				<div class="item-left">
-<<<<<<< HEAD
 					<img
 					 class="star"
 					 src="/static/imgs/whiteStar.png"
 					 alt="logo"
 					>
-=======
->>>>>>> 87bf25ebd9cce841b6759615c5ece292bc07925c
 					<img
 					 class="logo"
 					 src="/static/imgs/example-2.jpg"
@@ -38,7 +31,7 @@
 				<span class="schedule">Reg S</span>
 			</div>
 		</li>
-		
+
 		<li
 		 @click="$router.push('/investment/detail')"
 		 class="item-container"
