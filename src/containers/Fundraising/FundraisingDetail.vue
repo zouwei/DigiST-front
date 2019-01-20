@@ -24,50 +24,50 @@
 					 src="/static/imgs/example-2.jpg"
 					 alt="logo"
 					>
-					<span class="company-name">GKS</span>
+					<span class="company-name">{{projectDetail.project_name}}</span>
 				</div>
-				<p class="text">从 2015 年 4 月起，Ant Design 在蚂蚁金服中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+				<p class="text">{{projectDetail.project_description}}</p>
 			</div>
 			<!-- 详情 -->
 			<ul class="detail-list">
 				<li class="detail-item">
 					<span class="label">项目估值</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.project_val}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">项目代币</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.project_token}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">筹集规模</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.project_scale}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">筹集模式</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.project_mode}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">最低认购</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.minimum_subscription}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">投资年限</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.investment_period}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">股权收益权</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.equity_income}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">提前退出窗口</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.exit_early}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">智能合约类型</span>
 					<span class="value">100亿元</span>
 				</li>
 				<li class="detail-item">
-					<span class="label">拍照类型</span>
+					<span class="label">牌照类型</span>
 					<span class="value">100亿元</span>
 				</li>
 			</ul>
@@ -75,11 +75,11 @@
 			<ul class="detail-list">
 				<li class="detail-item">
 					<span class="label">目标</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.vote_target}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">已筹集</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.subscribed_quantity}}</span>
 				</li>
 				<li class="detail-item">
 					<span class="label">剩余</span>
@@ -87,7 +87,7 @@
 				</li>
 				<li class="detail-item">
 					<span class="label">参与人数</span>
-					<span class="value">100亿元</span>
+					<span class="value">{{projectDetail.subscribed_frequency}}</span>
 				</li>
 			</ul>
 			<div
@@ -120,6 +120,7 @@ export default {
 
 	data() {
 		return {
+			projectDetail: {},
 			fundsOption: {
 				title: {
 					text: "募资资金",
@@ -219,7 +220,47 @@ export default {
 			numberOfPeople.setOption(this.numberOfPeopleOption);
 			const funds = echarts.init(this.$refs.funds, "dark");
 			funds.setOption(this.fundsOption);
+		},
+		async getDetail() {
+			this.$toast.loading({
+				forbidClick: true,
+				message: "",
+				duration: 0
+			});
+			try {
+				const { data } = await this.$http.get(
+					`/ws_digist/fundraising/getFundraisingDetail/${
+						this.$route.params.id
+					}`
+				);
+				this.$toast.clear();
+				const { code, result, msg } = data;
+				if (+code === 0) {
+					this.projectDetail = result;
+					console.log(result);
+				} else {
+					this.$toast({
+						message: msg,
+						forbidClick: true
+					});
+				}
+			} catch (e) {
+				this.$toast({
+					message: "数据获取失败，请重试！",
+					forbidClick: true
+				});
+				console.log(
+					`/ws_digist/fundraising/getFundraisingDetail/${
+						this.$route.params.id
+					}:`,
+					e
+				);
+			}
 		}
+	},
+
+	created() {
+		this.getDetail();
 	},
 
 	mounted() {
