@@ -10,7 +10,7 @@
 		 v-for="item of dataList"
 		 :key="item.id"
 		 tag="div"
-		 to="/fundraising/detail"
+		 :to="`/fundraising/detail/${item.id}`"
 		 class="item-container"
 		>
 			<div class="item">

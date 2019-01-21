@@ -67,7 +67,7 @@ export default new Router({
           component: FundraisingIndex
         },
         {
-          path: 'detail',
+          path: 'detail/:id',
           name: 'FundraisingDetail',
           component: FundraisingDetail
         },
