@@ -31,11 +31,6 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: '',
-          name: 'Investment',
-          component: Investment
-        },
-        {
           path: 'detail',
           name: 'InvestmentDetail',
           component: InvestmentDetail

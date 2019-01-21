@@ -43,30 +43,36 @@
 </template>
 
 <script>
-import Hot from "./Doing";
-import SelfChoice from "./Done";
+import Doing from "./Doing";
+import Done from "./Done";
+import Undo from "./Undo"
 
 export default {
-	name: "Home",
+	name: "Investment",
 
 	components: {
-		Hot,
-		SelfChoice
+		Doing,
+		Done,
+		Undo
 	},
 
 	data() {
 		return {
-			renderComponentName: "Hot",
+			renderComponentName: "Doing",
 			value: "",
 			tabs: [
 				{
-					title: "热门",
-					name: "Hot"
+					title: "进行中",
+					name: "Doing"
 				},
 				{
-					title: "自选",
-					name: "SelfChoice"
-				}
+					title: "已到期",
+					name: "Done"
+				},
+				{
+					title: "未投资",
+					name: "Undo"
+				},
 			]
 		};
 	},
