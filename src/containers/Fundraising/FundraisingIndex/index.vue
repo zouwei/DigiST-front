@@ -21,12 +21,6 @@
 		 slot="content"
 		 :is="renderComponentName"
 		/>
-		<adaptation-img
-		 class="start-fundraising"
-		 src="start-fundraising.png"
-		 alt="开始募资"
-		 @click.native="$router.push('/fundraising/precautions')"
-		/>
 	</base-container>
 </template>
 
@@ -94,11 +88,5 @@ export default {
 			background-color: #fff;
 		}
 	}
-}
-.start-fundraising {
-	position: absolute;
-	right: 0;
-	bottom: rem(205);
-	width: rem(100);
 }
 </style>

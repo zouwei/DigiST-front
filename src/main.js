@@ -12,6 +12,7 @@ import './components/global'
 import 'style/global.scss'
 
 Vue.use(VueAxios, axios)
+Vue.prototype.$http.defaults.baseURL = 'http://digist.onela.cn'
 
 Vue.config.productionTip = false
 

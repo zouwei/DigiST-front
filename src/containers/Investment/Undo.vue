@@ -1,10 +1,14 @@
 <template>
-
+	<List />
 </template>
 
 <script>
+import List from './List'
+
 export default {
-	name: 'Investment'
+	name: 'Undo',
+
+	components: { List }
 };
 </script>
 

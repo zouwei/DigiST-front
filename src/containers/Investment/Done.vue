@@ -5,10 +5,9 @@
 
 <script>
 import List from './List'
-import SearchInit from './SearchInit'
 
 export default {
-	name: 'Hot',
+	name: 'Done',
 
 	components: { List }
 };

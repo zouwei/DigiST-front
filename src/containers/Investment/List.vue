@@ -1,7 +1,7 @@
 <template>
 	<ul class="list">
 		<li
-		 @click="$router.push('/investment/detail')"
+		 @click="$router.push('/investment/Detail')"
 		 class="item-container"
 		>
 			<div class="item">
@@ -33,7 +33,7 @@
 		</li>
 
 		<li
-		 @click="$router.push('/investment/detail')"
+		 @click="$router.push('/investment/Detail')"
 		 class="item-container"
 		>
 			<div class="item">
