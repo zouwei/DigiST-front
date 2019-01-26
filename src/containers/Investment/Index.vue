@@ -48,7 +48,7 @@ import Done from "./Done";
 import Undo from "./Undo"
 
 export default {
-	name: "Investment",
+	name: "InvestmentIndex",
 
 	components: {
 		Doing,
@@ -77,7 +77,41 @@ export default {
 		};
 	},
 	methods: {
-		onSearch() {},
+		async onSearch() {
+			try {
+				const { data } = await this.$http.post(
+					"/ws_digist/fundraising/getFundraisingList",
+					{
+						pageSize: 10,
+						pageIndex: this.pageIndex,
+						where: {
+							project_status: this.dataType
+						}
+					}
+				);
+				const { code, result, msg } = data;
+				if (+code === 0) {
+					if (result.data.length === 0) {
+						// this.pageIndex === 1 &&
+						// 	this.$emit("show-start-fundraising");
+						this.loadFinished = true;
+						return;
+					}
+					this.dataList = this.dataList.concat(result.data);
+				} else {
+					this.$toast({
+						message: msg,
+						forbidClick: true
+					});
+				}
+			} catch (e) {
+				this.$toast({
+					message: "数据获取失败，请重试！",
+					forbidClick: true
+				});
+				console.log("/fundraising/getFundraisingList:", e);
+			}
+		},
 		onCancel() {}
 	}
 };

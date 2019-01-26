@@ -6,7 +6,8 @@ import AsyncComponent from './AsyncComponent'
 const Home = AsyncComponent(import('containers/Home/Home'))
 
 // 投资相关
-const Investment = AsyncComponent(import('containers/Investment/Index'))
+const Investment = AsyncComponent(import('containers/Investment/Investment'))
+const InvestmentIndex = AsyncComponent(import('containers/Investment/Index'))
 const InvestmentDetail = AsyncComponent(import('containers/Investment/Detail'))
 
 
@@ -45,8 +46,8 @@ export default new Router({
       children: [
         {
           path: 'index',
-          name: 'Investment',
-          component: Investment
+          name: 'InvestmentIndex',
+          component: InvestmentIndex
         },
         {
           path: 'detail',
