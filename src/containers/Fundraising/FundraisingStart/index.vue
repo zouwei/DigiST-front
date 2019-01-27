@@ -12,18 +12,27 @@
 				 src="step-submit-active.png"
 				 alt="step-submit"
 				/>
-				<adaptation-img
+				<!-- <adaptation-img
 				 class="step-img"
 				 :src="`step-review${renderComponentName === 'Review' ? '-active' : ''}.png`"
 				 alt="step-review"
-				/>
+				/> -->
 				<adaptation-img
 				 class="step-img"
 				 :src="`step-publish${renderComponentName === 'Publish' ? '-active' : ''}.png`"
 				 alt="step-publish"
 				/>
 			</div>
-			<p class="tips under-review">
+			<p
+			 v-if="renderComponentName === 'Publish'"
+			 class="tips pass-review"
+			>
+				<span>*请对项目进行发布</span>
+			</p>
+			<p
+			 v-else-if="renderComponentName === 'Review'"
+			 class="tips under-review"
+			>
 				<adaptation-img
 				 class="coffee-img"
 				 src="coffee.png"
@@ -31,8 +40,15 @@
 				/>
 				<span>您的项目正在审核中，请耐心等候…</span>
 			</p>
+			<p
+			 v-else
+			 class="tips fail-review"
+			>
+				<span>*请填写并确认所有信息</span>
+			</p>
 			<component
 			 :is="renderComponentName"
+			 :project-detail="projectDetail"
 			 @change-step="changeStep"
 			/>
 		</template>
@@ -41,7 +57,7 @@
 
 <script>
 import SubmitInfo from "./SubmitInfo";
-import Review from "./Review";
+// import Review from "./Review";
 import Publish from "./Publish";
 
 export default {
@@ -49,19 +65,21 @@ export default {
 
 	components: {
 		SubmitInfo,
-		Review,
+		// Review,
 		Publish
 	},
 
 	data() {
 		return {
-			renderComponentName: "Review"
+			renderComponentName: "SubmitInfo",
+			projectDetail: {}
 		};
 	},
 
 	methods: {
-		changeStep(stepName) {
+		changeStep(stepName, projectDetail) {
 			this.renderComponentName = stepName;
+			this.projectDetail = projectDetail;
 		}
 	}
 };
@@ -87,13 +105,13 @@ export default {
 	@include font-size(24);
 	&.under-review {
 		height: rem(180);
-		color: #2B7CD6;
+		color: #2b7cd6;
 	}
 	&.pass-review {
-		color: #019D50;
+		color: #019d50;
 	}
 	&.fail-review {
-		color: #FA2400;
+		color: #fa2400;
 	}
 }
 .coffee-img {

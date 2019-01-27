@@ -7,46 +7,46 @@
 				 src="/static/imgs/example-2.jpg"
 				 alt="logo"
 				>
-				<span class="company-name">GKS</span>
+				<span class="company-name">{{projectDetail.project_name}}</span>
 			</div>
-			<p class="text">从 2015 年 4 月起，Ant Design 在蚂蚁金服中后台产品线迅速推广，对接多条业务线，覆盖系统 800 个以上。定啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+			<p class="text">{{projectDetail.project_description}}</p>
 		</div>
 		<!-- 详情 -->
 		<ul class="detail-list">
 			<li class="detail-item">
 				<span class="label">项目估值</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.project_val}}元</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">项目代币</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.project_token}}</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">筹集规模</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.project_scale}}元</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">筹集模式</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.project_mode}}</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">最低认购</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.minimum_subscription}}</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">投资年限</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.investment_period}}</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">股权收益权</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.equity_income}}%</span>
 			</li>
 			<li class="detail-item">
 				<span class="label">提前退出窗口</span>
-				<span class="value">100亿元</span>
+				<span class="value">{{projectDetail.exit_early}}</span>
 			</li>
 		</ul>
-		<ul class="detail-list">
+		<!-- <ul class="detail-list">
 			<li class="detail-item">
 				<span class="label">智能合约类型</span>
 				<van-radio-group v-model="radio">
@@ -54,9 +54,12 @@
 					<van-radio name="2">DS</van-radio>
 				</van-radio-group>
 			</li>
-		</ul>
+		</ul> -->
 		<div class="submit-container">
-			<div class="submit-button">发布</div>
+			<div
+			 class="submit-button"
+			 @click="publishToken"
+			>发布</div>
 		</div>
 	</div>
 </template>
@@ -65,13 +68,60 @@
 export default {
 	name: "Publish",
 
+	props: ["projectDetail"],
+
 	data() {
 		return {
 			radio: "1",
 			form: {
-				name: ""
+				id: this.projectDetail.id,
+				user_id: this.$root.globalData.userId,
+				address: this.$root.globalData.walletId
 			}
 		};
+	},
+
+	methods: {
+		async publishToken() {
+			this.$toast.loading({
+				forbidClick: true,
+				message: "",
+				duration: 0
+			});
+			try {
+				const { data } = await this.$http.post(
+					"/ws_digist/fundraising/publishToken",
+					this.form
+				);
+				this.$toast.clear();
+				const { code, msg } = data;
+				if (+code === 0) {
+					setTimeout(() => {
+						this.$router.replace("/fundraising");
+					}, 2000);
+					this.$toast({
+						message: "发布成功",
+						forbidClick: true,
+						duration: 2000
+					});
+				} else {
+					this.$toast({
+						message: msg,
+						forbidClick: true
+					});
+				}
+			} catch (e) {
+				this.$toast({
+					message: "数据获取失败，请重试",
+					forbidClick: true
+				});
+				console.log("/ws_digist/fundraising/publishToken", e);
+			}
+		}
+	},
+
+	created() {
+		console.log(this.projectDetail);
 	}
 };
 </script>
@@ -82,7 +132,7 @@ export default {
 .van-radio {
 	display: inline-block;
 	& + .van-radio {
-        margin-left: rem(20);
+		margin-left: rem(20);
 	}
 }
 .review {

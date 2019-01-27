@@ -99,10 +99,10 @@ export default {
 				}
 			} catch (e) {
 				this.$toast({
-					message: "数据获取失败，请重试！",
+					message: "数据获取失败，请重试",
 					forbidClick: true
 				});
-				console.log("/fundraising/getFundraisingList:", e);
+				console.log("/fundraising/getFundraisingList", e);
 			}
 		}
 	},

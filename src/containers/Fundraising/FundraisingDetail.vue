@@ -8,8 +8,9 @@
 			<adaptation-img
 			 slot="right"
 			 class="collection"
-			 src="collection-detail.png"
+			 :src="`collection-detail-${collectionState}.png`"
 			 alt="collection-detail"
+			 @click.native="collectionProject"
 			/>
 		</base-header>
 		<!-- 滚动外层盒子 -->
@@ -120,6 +121,9 @@ export default {
 
 	data() {
 		return {
+			// 收藏状态
+			collectionState: "DEL",
+			// 项目详情
 			projectDetail: {},
 			fundsOption: {
 				title: {
@@ -212,6 +216,70 @@ export default {
 	},
 
 	methods: {
+		async collectionProject() {
+			this.$toast.loading({
+				forbidClick: true,
+				message: "",
+				duration: 0
+			});
+			try {
+				const { data } = await this.$http.post(
+					"/ws_digist/project/userFollowProject",
+					{
+						user_id: this.$root.globalData.userId,
+						fundraising_id: this.$route.params.id,
+						action: this.collectionState === "ADD" ? "DEL" : "ADD"
+					}
+				);
+				this.$toast.clear();
+				const { code, result, msg } = data;
+				if (+code === 0) {
+					this.collectionState =
+						this.collectionState === "ADD" ? "DEL" : "ADD";
+				} else {
+					this.$toast({
+						message: msg,
+						forbidClick: true
+					});
+				}
+			} catch (e) {
+				this.$toast({
+					message: "数据获取失败，请重试",
+					forbidClick: true
+				});
+				console.log("/ws_digist/project/userFollowProject", e);
+			}
+		},
+		async checkIscollectionProject() {
+			try {
+				const { data } = await this.$http.post(
+					"/ws_digist/project/getUserFollowProject",
+					{
+						pageSize: 10,
+						pageIndex: 1,
+						where: {
+							id: this.$route.params.id
+						}
+					}
+				);
+				const { code, result, msg } = data;
+				if (+code === 0) {
+					this.collectionState =
+						result.recordsTotal === 1 ? "ADD" : "DEL";
+				} else {
+					this.$toast({
+						message: msg,
+						forbidClick: true
+					});
+				}
+			} catch (e) {
+				this.$toast({
+					message: "数据获取失败，请重试",
+					forbidClick: true
+				});
+				console.log("/ws_digist/project/getUserFollowProject", e);
+			}
+		},
 		initEcharts() {
 			const numberOfPeople = echarts.init(
 				this.$refs.numberOfPeople,
@@ -237,7 +305,6 @@ export default {
 				const { code, result, msg } = data;
 				if (+code === 0) {
 					this.projectDetail = result;
-					console.log(result);
 				} else {
 					this.$toast({
 						message: msg,
@@ -246,13 +313,13 @@ export default {
 				}
 			} catch (e) {
 				this.$toast({
-					message: "数据获取失败，请重试！",
+					message: "数据获取失败，请重试",
 					forbidClick: true
 				});
 				console.log(
 					`/ws_digist/fundraising/getFundraisingDetail/${
 						this.$route.params.id
-					}:`,
+					}`,
 					e
 				);
 			}
@@ -260,6 +327,7 @@ export default {
 	},
 
 	created() {
+		this.checkIscollectionProject();
 		this.getDetail();
 	},
 
