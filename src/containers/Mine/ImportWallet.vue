@@ -2,7 +2,8 @@
 	<base-container>
 		<base-header
 		 slot="header"
-		 title=""
+		 title="导入钱包"
+     :back="true"
 		>
 			<div
 			 slot="bottom"
