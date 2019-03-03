@@ -17,7 +17,7 @@ const FundraisingIndex = AsyncComponent(import('containers/Fundraising/Fundraisi
 const FundraisingDetail = AsyncComponent(import('containers/Fundraising/FundraisingDetail'))
 const FundraisingPrecautions = AsyncComponent(import('containers/Fundraising/FundraisingPrecautions'))
 const FundraisingStart = AsyncComponent(import('containers/Fundraising/FundraisingStart/index'))
-
+import Mine from './mine'
 Vue.use(Router)
 
 export default new Router({
@@ -83,6 +83,7 @@ export default new Router({
           component: FundraisingStart
         }
       ]
-    }
+    },
+    ...Mine,
   ]
 })
